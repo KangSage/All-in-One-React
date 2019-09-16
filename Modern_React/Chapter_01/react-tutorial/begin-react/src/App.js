@@ -1,21 +1,16 @@
 import React from 'react';
 import Hello from './Hello';
 import './App.css';
+import Wrapper from "./Wrapper";
 
 function App() {
-  const name = 'react';
-  const style = {
-    backgroundColor: 'black',
-    color: 'aqua',
-    fontSize: 24,
-    padding: '1rem'
-  };
   return (
-    <>
-     <Hello />
-      <div style={style} >{name}</div>
-      <div className="gray-box">{name}</div>
-     </>
+    <Wrapper>
+     <Hello name="react" color="red" isSpecial={true}/>
+     {/* 값을 할당하지 않으면 논리값 true가 자동 할당된다 */}
+     <Hello name="react" color="red" isSpecial/>
+     <Hello color="red"/>
+     </Wrapper>
   );
 }
 
