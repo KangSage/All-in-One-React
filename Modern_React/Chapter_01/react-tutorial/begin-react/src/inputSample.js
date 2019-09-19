@@ -6,7 +6,6 @@ function InputSample() {
     nickname: '',
   });
   const nameInput = useRef();
-  const nicknameInput = useRef();
   const {name, nickname} = inputs;
   const onChange = (e) => {
     const {name, value} = e.target;
