@@ -14,24 +14,26 @@ increaseAndPrint(0, n => {
       increaseAndPrint(n, n => {
         increaseAndPrint(n, n => {
           console.log('작업 끝!');
-        })
-      })
-    })
-  })
+        });
+      });
+    });
+  });
 });
 
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     resolve('result');
     // reject(new Error());
-  }, 1000)
+  }, 1000);
 });
 
-myPromise.then(result => {
-  console.log(result);
-}).catch(e => {
-  console.error(e);
-});
+myPromise
+  .then(result => {
+    console.log(result);
+  })
+  .catch(e => {
+    console.error(e);
+  });
 
 function increaseAndPrint2(n) {
   return new Promise((resolve, reject) => {
@@ -45,28 +47,34 @@ function increaseAndPrint2(n) {
       }
       console.log(value);
       resolve(value);
-    }, 1000)
+    }, 1000);
   });
 }
 
-increaseAndPrint2(0).then(n => {
-  // console.log('result: ', n);
-  return increaseAndPrint2(n);
-}).then(n => {
-  console.log('result : ', n);
-  return increaseAndPrint2(n);
-}).then(n => {
-  console.log('result : ', n);
-  return increaseAndPrint2(n);
-}).then(n => {
-  console.log('result : ', n);
-  return increaseAndPrint2(n);
-}).then(n => {
-  console.log('result : ', n);
-  return increaseAndPrint2(n);
-}).catch(e => {
-  console.error(e);
-});
+increaseAndPrint2(0)
+  .then(n => {
+    // console.log('result: ', n);
+    return increaseAndPrint2(n);
+  })
+  .then(n => {
+    console.log('result : ', n);
+    return increaseAndPrint2(n);
+  })
+  .then(n => {
+    console.log('result : ', n);
+    return increaseAndPrint2(n);
+  })
+  .then(n => {
+    console.log('result : ', n);
+    return increaseAndPrint2(n);
+  })
+  .then(n => {
+    console.log('result : ', n);
+    return increaseAndPrint2(n);
+  })
+  .catch(e => {
+    console.error(e);
+  });
 
 increaseAndPrint2(0)
   .then(increaseAndPrint2)
