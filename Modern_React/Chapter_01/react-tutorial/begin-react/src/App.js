@@ -60,7 +60,7 @@ function App() {
   };
 
   return (
-    <>
+    <fragment>
       <CreateUser
         username={username}
         email={email}
@@ -68,7 +68,7 @@ function App() {
         onCreate={onCreate}
       />
       <UserList users={users} onRemove={onRemove}/>
-    </>
+    </fragment>
   );
 }
 

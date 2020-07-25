@@ -1,10 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, {
+  useState,
+  useRef // DOM에 직접 접근하기 위해 사용한다.
+} from 'react';
 
 function InputSample() {
   const [inputs, setInputs] = useState({
     name: '',
     nickname: '',
   });
+  // useRef()를 원하는 이름으로 할당.
   const nameInput = useRef();
   const {name, nickname} = inputs;
   const onChange = (e) => {
@@ -14,6 +18,7 @@ function InputSample() {
     // 불변성을 지켜주어야만 콤포넌트가 업데이트 됨
     setInputs({
       ...inputs,
+      // name에 할당 된 값이 key가 되도록 []로 감싼다.
       [name]: value,
     });
   };
@@ -22,6 +27,7 @@ function InputSample() {
       name: '',
       nickname: ''
     });
+    // nameInput을 가지고 있는 태그에 focus가 잡히도록 한다.
     nameInput.current.focus()
   };
 
@@ -33,6 +39,7 @@ function InputSample() {
         placeholder="이름"
         onChange={onChange}
         value={name}
+        {/* 할당 된 useRef를 원하는 태그에 넣어 준다. */}
         ref={nameInput}
       />
       <input

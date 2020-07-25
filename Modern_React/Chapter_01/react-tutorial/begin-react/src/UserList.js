@@ -21,6 +21,8 @@ function UserList({ users, onRemove }) {
           (user) => (
             <User
               user={user}
+              // 고유 값을 key로 넘겨 줘야 리스트 렌더링 시 최적화가 가능하다.
+              // 배열의 index를 사용하면 경고만 사라질 뿐 실제 최적화가 되는 것은 아님.
               key={user.id}
               onRemove={onRemove}
             />

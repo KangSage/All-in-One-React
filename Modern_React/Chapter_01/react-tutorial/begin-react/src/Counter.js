@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 
 function Counter() {
+  // const numberState = useState(0);
+  // const number = numberState[0];
+  // const setNumber = numberState[1];
+
+  // 배열 구조 분해
   const [ number, setNumber ] = useState(0);
+
   const onIncrease = () => {
     // setNumber(number + 1)
+    // 함수형 업데이트
     setNumber(prevNum => prevNum +1);
   };
 
   const  onDecrease = () => {
     // setNumber(number - 1)
+    // 함수형 업데이트
     setNumber(prevNum => prevNum -1);
   };
 
